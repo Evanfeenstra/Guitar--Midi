@@ -31,8 +31,8 @@ AudioConnection patchCord3(playSd, 0, dac, 0);
 AudioControlSGTL5000     sgtl5000_1;
 
 int base_a4 = 440;
-int midi=0;
-int oldmidi=0;
+int note=0;
+int oldnote=0;
 int val=0;
 int oldval=0;
 
@@ -65,15 +65,15 @@ void setup() {
 void loop() {
     // read back fundamental frequency
     if (tuner.available()) {
-        float note = tuner.read();
+        float freq = tuner.read();
         //float prob = tuner.probability();
         //Serial.printf("Note: %3.2f | Probability: %.2f\n", note, prob);
-        oldmidi=midi;
-        midi = round(12*(log(note/base_a4)/log(2))+68.5);
-        if(oldmidi!=midi){
-          Serial.println(midi);
+        oldnote=note;
+        note = round(12*(log(freq/base_a4)/log(2))+68.5);
+        if(oldnote!=note){
+          Serial.println(note);
           String string  = "sound";
-          String string2 = string + midi;
+          String string2 = string + note;
           String string3 = string2 + ".wav";
           //string = string + ".wav";
           char filename[12];
