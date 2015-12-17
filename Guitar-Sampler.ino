@@ -82,8 +82,8 @@ void loop() {
           playSd.play(filename);
           
           //uncomment to send MIDI notes over USB
-          //usbMIDI.sendNoteOff(oldmidi, 127, 1);
-          //usbMIDI.sendNoteOn(midi, 127, 1);
+          //usbMIDI.sendNoteOff(oldnote, 127, 1);
+          //usbMIDI.sendNoteOn(note, 127, 1);
         }
     }
 
