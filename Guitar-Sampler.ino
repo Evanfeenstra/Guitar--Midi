@@ -5,6 +5,8 @@
      where "99" is the midi note number. (eg. a sample on low E would be "sound50.wav")
      
   Uncomment lines 85 and 86 to send notes as MIDI over usb
+  
+  Use the Teensy Audio Board for 44.1K, 16 bit audio sample playback.
 
   Audio library by Paul Stoffregen http://www.pjrc.com/teensy/td_libs_Audio.html
   Tuner library: https://github.com/duff2013/AudioTuner, using the YIN algorithm:
@@ -69,7 +71,8 @@ void loop() {
         //float prob = tuner.probability();
         //Serial.printf("Note: %3.2f | Probability: %.2f\n", note, prob);
         oldnote=note;
-        note = round(12*(log(freq/base_a4)/log(2))+68.5);
+        //frequency to midi conversion
+        note = round(12*(log(freq/base_a4)/log(2))+69);
         if(oldnote!=note){
           Serial.println(note);
           String string  = "sound";
