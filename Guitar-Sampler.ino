@@ -1,6 +1,6 @@
 /*
  
-  Guitar pitch detector that plays samples form an SD card, for Teensy Arduino.
+  Guitar pitch detector that plays samples from an SD card, for Teensy Arduino.
      Choose samples for each note by uploading WAV files called "sound99.wav",
      where "99" is the midi note number. (eg. a sample on low E would be "sound50.wav")
      
